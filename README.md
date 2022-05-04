@@ -1,6 +1,4 @@
-# fbyte
+# wsh
 
-## Convert all bytes of an image into an unsigned character array
+## Simple Shell Implementation
 
-
-Used for graphics rendering and hiding data
