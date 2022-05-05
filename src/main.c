@@ -189,8 +189,7 @@ int wsh_num_builtins() {
 
 
 
-int wsh_cd(char **args)
-{
+int wsh_cd(char **args){
   if(args[1] == NULL){
     fprintf(stderr, "wsh: expected argument to \"cd\"\n");
   } else {
