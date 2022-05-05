@@ -6,6 +6,8 @@
 #include <limits.h>
 #include <sys/wait.h>
 
+
+
 #define RED             "\e[0;31m"
 #define B_RED           "\e[1;31m"
 #define GREEN           "\e[0;32m"
@@ -81,15 +83,15 @@ char *wsh_read_line(){
   size_t bufsize = 0; // have getline allocate a buffer for us
   char cwd[256];
 
-  if (getcwd(cwd, sizeof(cwd)) == NULL) {
+  if(getcwd(cwd, sizeof(cwd)) == NULL){
     perror("getcwd() error");
     exit(1);
   }
 
   printf(B_CYAN "%s: $ " RESET, cwd);
 
-  if (getline(&line, &bufsize, stdin) == -1){
-    if (feof(stdin)) {
+  if(getline(&line, &bufsize, stdin) == -1){
+    if(feof(stdin)){
       exit(0);  // We recieved an EOF
     } else  {
       perror("wsh");
@@ -109,20 +111,20 @@ char **wsh_split_line(char *line){
   char **tokens = malloc(bufSize * sizeof(char*));
   char *token;
 
-  if (!tokens) {
+  if(!tokens){
     fprintf(stderr, "wsh: allocation error\n");
     exit(EXIT_FAILURE);
   }
 
   token = strtok(line, WSH_TOK_DELIM);
-  while (token != NULL) {
+  while(token != NULL){
     tokens[position] = token;
     position++;
 
-    if (position >= bufSize) {
+    if(position >= bufSize){
       bufSize += WSH_TOK_BUFSIZE;
       tokens = realloc(tokens, bufSize * sizeof(char*));
-      if (!tokens) {
+      if(!tokens){
         fprintf(stderr, "wsh: allocation error\n");
         exit(EXIT_FAILURE);
       }
@@ -155,7 +157,7 @@ int wsh_launch(char **args){
     // parent process
     do {
       wpid = waitpid(pid, &status, WUNTRACED);
-    } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+    } while(!WIFEXITED(status) && !WIFSIGNALED(status));
   }
 
   return 1;
@@ -169,8 +171,8 @@ int wsh_execute(char **args){
   }
 
   // check if the command is implemented and run its corresponding function if it is
-  for (int i = 0; i < wsh_num_builtins(); i++) {
-    if (strcmp(args[0], builtin_str[i]) == 0) {
+  for(int i = 0; i < wsh_num_builtins(); i++){
+    if(strcmp(args[0], builtin_str[i]) == 0){
       return builtin_func[i](args);
     }
   }
@@ -189,10 +191,10 @@ int wsh_num_builtins() {
 
 int wsh_cd(char **args)
 {
-  if (args[1] == NULL) {
+  if(args[1] == NULL){
     fprintf(stderr, "wsh: expected argument to \"cd\"\n");
   } else {
-    if (chdir(args[1]) != 0) {
+    if(chdir(args[1]) != 0){
       perror("lsh");
     }
   }
@@ -207,7 +209,7 @@ int wsh_help(char **args){
   printf(B_YELLOW "\t- Invoke shell:\n");
   printf(YELLOW   "\t  wsh\n");
   printf(B_YELLOW "\t- Current builtin commands:\n");
-  for(int i = 0; i < wsh_num_builtins(); i++) {
+  for(int i = 0; i < wsh_num_builtins(); i++){
     printf(YELLOW "\t  %s\n", builtin_str[i]);
   }
 
