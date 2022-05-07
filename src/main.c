@@ -53,6 +53,11 @@ const int (*builtin_func[]) (char **) = {
 
 
 int main(int argc, char *argv[]){
+  if((strcmp("-h", argv[1]) == 0) || (strcmp("--help", argv[1]) == 0)){
+    wsh_help();
+    return 0;
+  }
+  
   wsh_loop();
 
   return 0;
@@ -194,7 +199,7 @@ int wsh_cd(char **args){
     fprintf(stderr, "wsh: expected argument to \"cd\"\n");
   } else {
     if(chdir(args[1]) != 0){
-      perror("lsh");
+      perror("wsh");
     }
   }
   return 1;
