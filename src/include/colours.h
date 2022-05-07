@@ -58,13 +58,13 @@
 #define BHI_CYAN        "\e[1;96m"
 #define BHI_WHITE       "\e[1;97m"
 
-#define HIBA_BLACK      "\e[1;90m"
-#define HIBA_RED        "\e[1;91m"
-#define HIBA_GREEN      "\e[1;92m"
-#define HIBA_YELLOW     "\e[1;93m"
-#define HIBA_BLUE       "\e[1;94m"
-#define HIBA_MAGENTA    "\e[1;95m"
-#define HIBA_CYAN       "\e[1;96m"
-#define HIBA_WHITE      "\e[1;97m"
+#define HIBA_BLACK      "\e[0;100m"
+#define HIBA_RED        "\e[0;101m"
+#define HIBA_GREEN      "\e[0;102m"
+#define HIBA_YELLOW     "\e[0;103m"
+#define HIBA_BLUE       "\e[0;104m"
+#define HIBA_MAGENTA    "\e[0;105m"
+#define HIBA_CYAN       "\e[0;106m"
+#define HIBA_WHITE      "\e[0;107m"
 
 #endif // COLOURS_H

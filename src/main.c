@@ -74,17 +74,17 @@ char *wsh_read_line(){
   char cwd[256];
 
   if(getcwd(cwd, sizeof(cwd)) == NULL){
-    perror("getcwd() error");
+    perror(RED "getcwd() error");
     exit(1);
   }
 
-  printf(B_CYAN "%s: $ " RESET, cwd);
+  printf(BHI_GREEN "%s: $ " RESET, cwd);
 
   if(getline(&line, &bufsize, stdin) == -1){
     if(feof(stdin)){
       exit(0);  // We recieved an EOF
     } else  {
-      perror("wsh");
+      perror(RED "wsh");
       exit(1);
     }
   }
@@ -102,7 +102,7 @@ char **wsh_split_line(char *line){
   char *token;
 
   if(!tokens){
-    fprintf(stderr, "wsh: allocation error\n");
+    fprintf(stderr, RED "wsh: allocation error\n");
     exit(EXIT_FAILURE);
   }
 
@@ -115,7 +115,7 @@ char **wsh_split_line(char *line){
       bufSize += WSH_TOK_BUFSIZE;
       tokens = realloc(tokens, bufSize * sizeof(char*));
       if(!tokens){
-        fprintf(stderr, "wsh: allocation error\n");
+        fprintf(stderr, RED "wsh: allocation error\n");
         exit(EXIT_FAILURE);
       }
     }
@@ -137,12 +137,12 @@ int wsh_launch(char **args){
   if(pid == 0){
     // child process
     if(execvp(args[0], args) == -1){
-      perror("wsh");
+      perror(RED "wsh");
     }
     exit(1);
   } else if(pid < 0){
     // error forking
-    perror("wsh");
+    perror(RED "wsh");
   } else {
     // parent process
     do {
@@ -181,10 +181,10 @@ int wsh_num_builtins() {
 
 int wsh_cd(char **args){
   if(args[1] == NULL){
-    fprintf(stderr, "wsh: expected argument to \"cd\"\n");
+    fprintf(stderr, RED "wsh: expected argument to \"cd\"\n");
   } else {
     if(chdir(args[1]) != 0){
-      perror("wsh");
+      perror(RED "wsh");
     }
   }
   return 1;
