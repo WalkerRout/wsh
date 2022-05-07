@@ -1,0 +1,70 @@
+
+#ifndef COLOURS_H
+#define COLOURS_H
+
+#define RESET           "\e[0m"
+
+#define BLACK           "\e[0;30m"
+#define RED             "\e[0;31m"
+#define GREEN           "\e[0;32m"
+#define YELLOW          "\e[0;33m"
+#define BLUE            "\e[0;34m"
+#define MAGENTA         "\e[0;35m"
+#define CYAN            "\e[0;36m"
+#define WHITE           "\e[0;37m"
+
+#define B_BLACK         "\e[1;30m"
+#define B_RED           "\e[1;31m"
+#define B_GREEN         "\e[1;32m"
+#define B_YELLOW        "\e[1;33m"
+#define B_BLUE          "\e[1;34m"
+#define B_MAGENTA       "\e[1;35m"
+#define B_CYAN          "\e[1;36m"
+#define B_WHITE         "\e[1;37m"
+
+#define U_BLACK         "\e[4;30m"
+#define U_RED           "\e[4;31m"
+#define U_GREEN         "\e[4;32m"
+#define U_YELLOW        "\e[4;33m"
+#define U_BLUE          "\e[4;34m"
+#define U_MAGENTA       "\e[4;35m"
+#define U_CYAN          "\e[4;36m"
+#define U_WHITE         "\e[4;37m"
+
+#define BA_BLACK        "\e[40m"
+#define BA_RED          "\e[41m"
+#define BA_GREEN        "\e[42m"
+#define BA_YELLOW       "\e[43m"
+#define BA_BLUE         "\e[44m"
+#define BA_MAGENTA      "\e[45m"
+#define BA_CYAN         "\e[46m"
+#define BA_WHITE        "\e[47m"
+
+#define HI_BLACK        "\e[90m"
+#define HI_RED          "\e[91m"
+#define HI_GREEN        "\e[92m"
+#define HI_YELLOW       "\e[93m"
+#define HI_BLUE         "\e[94m"
+#define HI_MAGENTA      "\e[95m"
+#define HI_CYAN         "\e[96m"
+#define HI_WHITE        "\e[97m"
+
+#define BHI_BLACK       "\e[1;90m"
+#define BHI_RED         "\e[1;91m"
+#define BHI_GREEN       "\e[1;92m"
+#define BHI_YELLOW      "\e[1;93m"
+#define BHI_BLUE        "\e[1;94m"
+#define BHI_MAGENTA     "\e[1;95m"
+#define BHI_CYAN        "\e[1;96m"
+#define BHI_WHITE       "\e[1;97m"
+
+#define HIBA_BLACK      "\e[1;90m"
+#define HIBA_RED        "\e[1;91m"
+#define HIBA_GREEN      "\e[1;92m"
+#define HIBA_YELLOW     "\e[1;93m"
+#define HIBA_BLUE       "\e[1;94m"
+#define HIBA_MAGENTA    "\e[1;95m"
+#define HIBA_CYAN       "\e[1;96m"
+#define HIBA_WHITE      "\e[1;97m"
+
+#endif // COLOURS_H
