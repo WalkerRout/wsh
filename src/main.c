@@ -54,7 +54,7 @@ const int (*builtin_func[]) (char **) = {
 
 int main(int argc, char *argv[]){
   if((strcmp("-h", argv[1]) == 0) || (strcmp("--help", argv[1]) == 0)){
-    wsh_help();
+    wsh_help(argv);
     return 0;
   }
   
