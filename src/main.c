@@ -53,13 +53,14 @@ const int (*builtin_func[]) (char **) = {
 
 
 int main(int argc, char *argv[]){
-  if((strcmp("-h", argv[1]) == 0) || (strcmp("--help", argv[1]) == 0)){
-    wsh_help(argv);
-    return 0;
+  if(argc > 1){
+    if((strcmp("-h", argv[1]) == 0) || (strcmp("--help", argv[1]) == 0)){
+      wsh_help(argv);
+      return 0;
+    }
   }
   
   wsh_loop();
-
   return 0;
 }
 
